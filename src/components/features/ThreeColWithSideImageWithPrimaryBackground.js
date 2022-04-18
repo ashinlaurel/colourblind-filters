@@ -1,4 +1,5 @@
-import React from "react";
+import { React, useContext } from "react";
+import { ColourContext } from "context/colourContext";
 import styled from "styled-components";
 import tw from "twin.macro";
 //eslint-disable-next-line
@@ -18,7 +19,7 @@ import FastIconImage from "images/fast-icon.svg";
 import ReliableIconImage from "images/reliable-icon.svg";
 import SimpleIconImage from "images/simple-icon.svg";
 
-const Container = tw.div`relative bg-primary-900 -mx-8 px-8 text-gray-100`;
+const Container = tw.div`relative -mx-8 px-8 text-gray-100`;
 
 const ThreeColumnContainer = styled.div`
   ${tw`flex flex-col items-center md:items-stretch md:flex-row flex-wrap md:justify-center max-w-screen-lg mx-auto py-20 md:py-24`}
@@ -110,12 +111,42 @@ export default ({
 
   if (!cards) cards = defaultCards;
 
+  const { colourmode, setColourMode } = useContext(ColourContext);
+
   return (
-    <Container>
+    <Container
+      css={[
+        tw`-mx-8 px-8 text-gray-100`,
+        colourmode == "Normal" && tw`bg-thenormal-400`,
+        colourmode == "prot" && tw`bg-prot-100`,
+        colourmode == "duet" && tw`bg-duet-100`,
+        colourmode == "trit" && tw`bg-trit-100`,
+      ]}
+    >
       <ThreeColumnContainer>
         {subheading && <Subheading>{subheading}</Subheading>}
-        <Heading>{heading}</Heading>
-        {description && <Description>{description}</Description>}
+        <Heading
+          css={[
+            colourmode == "Normal" && tw`text-duet-400`,
+            colourmode == "prot" && tw`text-prot-400`,
+            colourmode == "duet" && tw`text-duet-400`,
+            colourmode == "trit" && tw`text-trit-400`,
+          ]}
+        >
+          {heading}
+        </Heading>
+        {description && (
+          <Description
+            css={[
+              colourmode == "Normal" && tw`text-duet-400`,
+              colourmode == "prot" && tw`text-prot-400`,
+              colourmode == "duet" && tw`text-duet-400`,
+              colourmode == "trit" && tw`text-trit-400`,
+            ]}
+          >
+            {description}
+          </Description>
+        )}
         <VerticalSpacer />
         {cards.map((card, i) => (
           <Column key={i}>
@@ -124,8 +155,26 @@ export default ({
                 <img src={card.imageSrc || defaultCardImage} alt="" />
               </span>
               <span className="textContainer">
-                <span className="title">{card.title || "Fully Secure"}</span>
-                <p className="description">
+                <span
+                  css={[
+                    colourmode == "Normal" && tw`text-duet-400`,
+                    colourmode == "prot" && tw`text-prot-400`,
+                    colourmode == "duet" && tw`text-duet-400`,
+                    colourmode == "trit" && tw`text-trit-400`,
+                  ]}
+                  className="title"
+                >
+                  {card.title || "Fully Secure"}
+                </span>
+                <p
+                  css={[
+                    colourmode == "Normal" && tw`text-duet-400`,
+                    colourmode == "prot" && tw`text-prot-400`,
+                    colourmode == "duet" && tw`text-duet-400`,
+                    colourmode == "trit" && tw`text-trit-400`,
+                  ]}
+                  className="description"
+                >
                   {card.description ||
                     "Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud."}
                 </p>
