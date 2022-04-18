@@ -47,7 +47,7 @@ const Image = tw.img`w-144 ml-auto`;
 
 export default ({
   heading = "Colour Blindness Filters For Web Platforms",
-  description = "Choose one of the following colour blind profiles",
+  description = "Color blindness is the decreased ability to see color or differences in color. It can impair tasks such as selecting ripe fruit, choosing clothing, and reading traffic lights. This website has multiple colour profiles to change the website design according to the user's choice. Choose one of the following colour-blind profiles :",
   primaryButtonText = "Colour Blind Mode",
   primaryButtonUrl = "#",
   imageSrc = serverIllustrationImageSrc,
@@ -75,7 +75,7 @@ export default ({
     <div
       css={[
         tw`-mx-8 px-8 text-gray-100`,
-        colourmode == "Normal" && tw`bg-thenormal-100`,
+        colourmode == "Normal" && tw`bg-thenormal-400`,
         colourmode == "prot" && tw`bg-prot-100`,
         colourmode == "duet" && tw`bg-duet-100`,
         colourmode == "trit" && tw`bg-trit-100`,
@@ -90,7 +90,7 @@ export default ({
                 <Heading
                   css={[
                     tw`max-w-3xl lg:max-w-4xl lg:text-left leading-tight`,
-                    colourmode == "Normal" && tw`text-thenormal-400`,
+                    colourmode == "Normal" && tw`text-duet-400`,
                     colourmode == "prot" && tw`text-prot-400`,
                     colourmode == "duet" && tw`text-duet-400`,
                     colourmode == "trit" && tw`text-trit-400`,
@@ -98,7 +98,17 @@ export default ({
                 >
                   {heading}
                 </Heading>
-                <Description>{description}</Description>
+                <Description
+                  css={[
+                    tw`mt-4 max-w-2xl text-gray-100 lg:text-base mx-auto lg:mx-0`,
+                    colourmode == "Normal" && tw`text-duet-400`,
+                    colourmode == "prot" && tw`text-prot-400`,
+                    colourmode == "duet" && tw`text-duet-400`,
+                    colourmode == "trit" && tw`text-trit-400`,
+                  ]}
+                >
+                  {description}
+                </Description>
 
                 <div css={tw`relative inline-flex mt-4`}>
                   <svg

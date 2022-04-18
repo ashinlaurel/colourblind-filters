@@ -3,7 +3,10 @@ import styled from "styled-components";
 import tw from "twin.macro";
 //eslint-disable-next-line
 import { css } from "styled-components/macro";
-import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
+import {
+  SectionHeading,
+  Subheading as SubheadingBase,
+} from "components/misc/Headings.js";
 import { SectionDescription } from "components/misc/Typography.js";
 
 import defaultCardImage from "images/shield-icon.svg";
@@ -54,9 +57,9 @@ const Card = styled.div`
 
 export default ({
   cards = null,
-  heading = "Amazing Features",
+  heading = "Facts About Colour Blindness",
   subheading = "",
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  description = "Following are some interesting facts about colour blindness",
 }) => {
   /*
    * This componets has an array of object denoting the cards defined below. Each object in the cards array can have the key (Change it according to your need, you can also add more objects to have more cards in this feature component) or you can directly pass this using the cards prop:
@@ -69,14 +72,40 @@ export default ({
   const defaultCards = [
     {
       imageSrc: ShieldIconImage,
-      title: "Secure",
-      description: "We strictly only deal with vendors that provide top notch security infrastructure."
+      title: "Total Number",
+      description:
+        "It’s estimated that there are 300 million color blind people in the world!",
     },
-    { imageSrc: SupportIconImage, title: "24/7 Support" },
-    { imageSrc: CustomizeIconImage, title: "Customizable" },
-    { imageSrc: ReliableIconImage, title: "Reliable" },
-    { imageSrc: FastIconImage, title: "Fast" },
-    { imageSrc: SimpleIconImage, title: "Easy" }
+    {
+      imageSrc: SupportIconImage,
+      title: "How Common",
+      description:
+        " Color blindness is more common than you might think! 1 in 12 men is color blind while only 1 in 200 women have the condition.",
+    },
+    {
+      imageSrc: CustomizeIconImage,
+      title: "Chromosome",
+      description:
+        "Red-green color blindness is passed down through the mother on the X-chromosome.",
+    },
+    {
+      imageSrc: ReliableIconImage,
+      title: "Red Green Colour Blindness",
+      description:
+        "Red-green color blindness is common name for the two most common types called Deutan and Protan. It is given this name since red and green are the two colors that are typically most difficult to distinguish by color blind individuals with either of these conditions.",
+    },
+    {
+      imageSrc: FastIconImage,
+      title: "Cause",
+      description:
+        " Red-green color blindness is caused by a defect in a person’s light-sensitive cone cells. The green-sensing M cone and the red-sensing L cone’s sensitivities overlap more than they would in a normally-sighted person’s eyes, which creates color confusion across the spectrum.",
+    },
+    {
+      imageSrc: SimpleIconImage,
+      title: "Babies And Colour Blindness",
+      description:
+        " Babies are born color blind! As they grow, their color vision improves and is typically fully developed by the age of 6 months.",
+    },
   ];
 
   if (!cards) cards = defaultCards;
@@ -97,7 +126,8 @@ export default ({
               <span className="textContainer">
                 <span className="title">{card.title || "Fully Secure"}</span>
                 <p className="description">
-                  {card.description || "Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud."}
+                  {card.description ||
+                    "Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud."}
                 </p>
               </span>
             </Card>
