@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/colourblind-filters/static/css/main.def877c0.chunk.css",
-    "main.js": "/colourblind-filters/static/js/main.3f035b1d.chunk.js",
-    "main.js.map": "/colourblind-filters/static/js/main.3f035b1d.chunk.js.map",
+    "main.js": "/colourblind-filters/static/js/main.18a68d69.chunk.js",
+    "main.js.map": "/colourblind-filters/static/js/main.18a68d69.chunk.js.map",
     "runtime-main.js": "/colourblind-filters/static/js/runtime-main.6bcae07e.js",
     "runtime-main.js.map": "/colourblind-filters/static/js/runtime-main.6bcae07e.js.map",
     "static/css/2.df954f26.chunk.css": "/colourblind-filters/static/css/2.df954f26.chunk.css",
@@ -107,6 +107,6 @@
     "static/css/2.df954f26.chunk.css",
     "static/js/2.2556523a.chunk.js",
     "static/css/main.def877c0.chunk.css",
-    "static/js/main.3f035b1d.chunk.js"
+    "static/js/main.18a68d69.chunk.js"
   ]
 }
