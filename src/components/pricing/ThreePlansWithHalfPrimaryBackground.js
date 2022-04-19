@@ -1,7 +1,8 @@
-import React from "react";
+import { React, useContext } from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
+import { ColourContext } from "context/colourContext";
 import {
   SectionHeading,
   Subheading as SubheadingBase,
@@ -101,13 +102,9 @@ export default ({
       oldPrice: "",
       description: "Caused due to Missing/malfunctioning M-cone (green).",
       features: [
-        "4 Core Xeon CPU",
-        "2 GB RAM",
-        "100 GB SSD",
-        "3 TB Transfer",
-        "99.9% Uptime",
-        "Free Domain & SSL",
-        "Free DNS Management",
+        "Male : 5.00%",
+        "Female : 0.35%",
+        "Difficulty to distinguish between red and green colors",
       ],
       url: "https://google.com",
       // featured: "Most Popular",
@@ -118,32 +115,75 @@ export default ({
       oldPrice: "",
       description: "Caused due to Missing/malfunctioning S-cone (red).",
       features: [
-        "8 Core Xeon CPU",
-        "8 GB RAM",
-        "300 GB SSD",
-        "Unlimited Transfer",
-        "99.99% Uptime",
-        "Free Domain & SSL",
-        "Free DNS Management",
-        "Free Offsite Backup",
+        "Very Rare",
+        "Equally found in men and women",
+        "Difficulty to distinguish between blue and yellow colors",
       ],
       url: "https://google.com",
     },
   ];
 
   if (!plans) plans = defaultPlans;
+  const { colourmode, setColourMode } = useContext(ColourContext);
 
   return (
-    <Container>
+    <Container
+      css={[
+        colourmode == "Normal" && tw`bg-thenormal-400`,
+        colourmode == "prot" && tw`bg-prot-100`,
+        colourmode == "duet" && tw`bg-duet-100`,
+        colourmode == "trit" && tw`bg-trit-100`,
+      ]}
+    >
       <ContentWithPaddingXl>
         <HeaderContainer>
-          {subheading && <Subheading>{subheading}</Subheading>}
-          <Heading>{heading}</Heading>
-          {description && <Description>{description}</Description>}
+          {subheading && (
+            <Subheading
+              css={[
+                colourmode == "Normal" && tw`text-duet-400`,
+                colourmode == "prot" && tw`text-prot-400`,
+                colourmode == "duet" && tw`text-duet-400`,
+                colourmode == "trit" && tw`text-trit-400`,
+              ]}
+            >
+              {subheading}
+            </Subheading>
+          )}
+          <Heading
+            css={[
+              colourmode == "Normal" && tw`text-duet-400`,
+              colourmode == "prot" && tw`text-prot-400`,
+              colourmode == "duet" && tw`text-duet-400`,
+              colourmode == "trit" && tw`text-trit-400`,
+            ]}
+          >
+            {heading}
+          </Heading>
+          {description && (
+            <Description
+              css={[
+                colourmode == "Normal" && tw`text-duet-400`,
+                colourmode == "prot" && tw`text-prot-400`,
+                colourmode == "duet" && tw`text-duet-400`,
+                colourmode == "trit" && tw`text-trit-400`,
+              ]}
+            >
+              {description}
+            </Description>
+          )}
         </HeaderContainer>
         <PlansContainer>
           {plans.map((plan, index) => (
-            <Plan key={index} featured={plan.featured}>
+            <Plan
+              css={[
+                colourmode == "Normal" && tw`text-duet-400`,
+                colourmode == "prot" && tw`text-prot-400`,
+                colourmode == "duet" && tw`text-duet-400`,
+                colourmode == "trit" && tw`text-trit-400`,
+              ]}
+              key={index}
+              featured={plan.featured}
+            >
               <PlanHeader>
                 <span className="nameAndFeaturedContainer">
                   <span className="name">{plan.name}</span>
